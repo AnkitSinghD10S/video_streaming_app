@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "- [Model Link]( https://app.eraser.io/workspace/30T97URxClcMotOvyn6h?origin=share )",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js" 
   },
   "keywords": [
-    "backend"
+    "backend",
+    "javascript"
   ],
   "author": "Ankit Singh",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
 }
