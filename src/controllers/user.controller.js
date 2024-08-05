@@ -158,8 +158,8 @@ const logoutUser = asyncHandler(async (req, res) => {
   await User.findByIdAndUpdate(
     req.user._id,
     {
-      $set: {
-        refreshToken: undefined,
+      $unset: {
+        refreshToken: 1,//this removes the fields from document
       },
     },
     {
@@ -356,7 +356,7 @@ const getUserChannelProfile = asyncHandler(async (req, res) => {
         },
         isSubscribed: {
           $cond: {
-            if: { $in: [req.user?._id, "subscribers.subscriber"] },
+            if: { $in: [req.user?._id,"subscribers.subscriber"] },
             then: true,
             else: false,
           },
@@ -452,7 +452,6 @@ export {
   updateAccountDetails,
   updateUserAvatar,
   updateUserCoverImage,
-  updateUserAvatar,
   getWatchHistory,
   getUserChannelProfile
 };
